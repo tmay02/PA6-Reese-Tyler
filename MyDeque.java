@@ -21,11 +21,11 @@ public class MyDeque<E> implements DequeInterface<E> {
     }
 
     public void expandCapacity(){
-        if(data.length == 0){
+        if(this.data.length == 0){
             this.data = new Object[DEFAULT_CAPACITY];
             return;
         }
-        Object[] newData = new Object[data.length * 2];
+        Object[] newData = new Object[this.data.length * 2];
 
         int k = this.front;
         for(int i = 0; i < this.size(); i++){
@@ -51,19 +51,25 @@ public class MyDeque<E> implements DequeInterface<E> {
             throw new NullPointerException();
         }
 
-        if(data.length == this.size() - 1){
-            expandCapacity();
+        if(data.length == this.size()){
+            this.expandCapacity();
+        }
+
+        if(this.size() == 0) {
+            this.data[this.front] = element;
+            this.size++;
+            return;
         }
 
         if(this.front == 0){
             this.front = this.size() - 1;
-            data[this.front] = element;
-            size++;
+            this.data[this.front] = element;
+            this.size++;
             return;
         }
-        data[this.front - 1] = element;
+        this.data[this.front - 1] = element;
         this.front = this.front - 1;
-        size++;
+        this.size++;
     }
 
     public void addLast(E element){
@@ -71,19 +77,25 @@ public class MyDeque<E> implements DequeInterface<E> {
             throw new NullPointerException();
         }
 
-        if(data.length == this.size() - 1){
-            expandCapacity();
+        if(this.data.length == this.size()){
+            this.expandCapacity();
+        }
+
+        if(this.size() == 0) {
+            this.data[this.rear] = element;
+            this.size++;
+            return;
         }
 
         if(this.rear == this.size() - 1){
             this.rear = 0;
-            data[this.rear] = element;
-            size++;
+            this.data[this.rear] = element;
+            this.size++;
             return;
         }
-        data[this.rear + 1] = element;
+        this.data[this.rear + 1] = element;
         this.rear = this.rear + 1;
-        size++;
+        this.size++;
     }
 
     public E removeFirst(){
@@ -134,7 +146,7 @@ public class MyDeque<E> implements DequeInterface<E> {
         if(this.size() == 0) {
             return null;
         }
-
+        System.out.println(rear);
         return (E) this.data[rear];
     }
 }

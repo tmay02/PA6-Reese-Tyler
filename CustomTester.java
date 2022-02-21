@@ -40,15 +40,27 @@ public class CustomTester {
      */
     @Test
     public void testMyDequeExpandCapacity() {
-
+        MyDeque<Integer> deque = new MyDeque<>(2);
+        deque.addFirst(1);
+        deque.addFirst(2);
+        deque.addLast(3);
+        assertEquals(4, deque.data.length);
+        assertEquals(3, deque.size());
     }
 
     /**
-     * Test the addFirst method when [TODO]
+     * Test the addFirst method when [TODO]`
      */
     @Test
     public void testAddFirst() {
-
+        MyDeque<Integer> deque = new MyDeque<>(2);
+        deque.addFirst(1);
+        assertEquals(Integer.valueOf(1), deque.peekFirst());
+        deque.addFirst(2);
+        assertEquals(Integer.valueOf(2), deque.peekFirst());
+        assertEquals(Integer.valueOf(1), deque.peekLast());
+        deque.addLast(3);
+        assertEquals(Integer.valueOf(3), deque.peekLast());
     }
 
     /**

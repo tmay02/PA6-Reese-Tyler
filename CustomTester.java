@@ -22,11 +22,17 @@ import static org.junit.Assert.*;
 public class CustomTester {
     // ----------------MyDeque class----------------
     /**
-     * Test the constructor when [TODO: fill in a possible edge case here]
+     * Test the constructor when initialCapacity is less than 0
      */
     @Test
     public void testMyDequeConstructor() {
-
+        boolean testFail = false;
+        try{
+            MyDeque<Integer> d = new MyDeque<>(-1);
+        } catch (IllegalArgumentException E) {
+            testFail = true;
+        }
+        assertTrue(testFail);
     }
 
     /**
@@ -54,11 +60,25 @@ public class CustomTester {
     }
 
     /**
-     * Test the removeFirst method when [TODO]
+     * Test the removeFirst method when elements loop from one end of
+     * the array to another and first is at the end
      */
     @Test
     public void testRemoveFirst() {
+        MyDeque<Integer> d = new MyDeque<>(7);
+        Integer[] nums = {2,3,null,null,null,null,1};
+        Integer[] expected = {2,3,null,null,null,null,null};
+        d.front = 6;
+        d.rear = 1;
+        d.data = nums;
+        d.size = 4;
 
+        d.removeFirst();
+
+        assertEquals(nums,expected);
+        assertEquals(3, d.size);
+        assertEquals(1, d.rear);
+        assertEquals(0, d.front);
     }
 
     /**

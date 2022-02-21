@@ -91,11 +91,11 @@ public class MyDeque<E> implements DequeInterface<E> {
             return null;
         }
 
-        E returnElement = (E) this.data[front];
+        E returnElement = (E) 
 
         this.data[front] = null;
         this.size--;
-        if(this.front == this.size()) {
+        if(this.front == this.size() - 1) {
             this.front = 0;
         } else {
             this.front++;

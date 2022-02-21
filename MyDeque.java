@@ -25,24 +25,25 @@ public class MyDeque<E> implements DequeInterface<E> {
             this.data = new Object[DEFAULT_CAPACITY];
             return;
         }
-
-        this.data = new Object[data.length * 2];
+        Object[] newData = new Object[data.length * 2];
 
         int k = this.front;
         for(int i = 0; i < this.size(); i++){
             if(k > this.size() - 1){
                 k = 0;
             }
-            this.data[i] = data[k];
+            newData[i] = this.data[k];
             k++;
         }
 
         this.front = 0;
         if(this.size() == 0){
             this.rear = 0;
+            this.data = newData;
             return;
         }
         this.rear = this.size() - 1;
+        this.data = newData;
     }
 
     public void addFirst(E element){
@@ -57,12 +58,12 @@ public class MyDeque<E> implements DequeInterface<E> {
         if(this.front == 0){
             this.front = this.size() - 1;
             data[this.front] = element;
-            size++
+            size++;
             return;
         }
         data[this.front - 1] = element;
         this.front = this.front - 1;
-        size++
+        size++;
     }
 
     public void addLast(E element){
@@ -81,7 +82,7 @@ public class MyDeque<E> implements DequeInterface<E> {
             return;
         }
         data[this.rear + 1] = element;
-        this.front = this.front + 1;
+        this.rear = this.rear + 1;
         size++;
     }
 

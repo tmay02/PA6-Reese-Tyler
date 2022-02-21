@@ -3,7 +3,7 @@ public class MyDeque<E> implements DequeInterface<E> {
     int size;
     int rear;
     int front;
-    private static final DEFAULT_CAPACITY = 10;
+    private static final int DEFAULT_CAPACITY = 10;
     
     public MyDeque(int initialCapacity) {
         if(initialCapacity < 0) {

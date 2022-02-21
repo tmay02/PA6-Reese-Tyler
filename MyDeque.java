@@ -28,13 +28,6 @@ public class MyDeque<E> implements DequeInterface<E> {
 
         this.data = new Object[data.length * 2];
 
-        this.front = 0;
-        if(this.size() == 0){
-            this.rear = 0;
-            return;
-        }
-        this.rear = this.size() - 1;
-
         int k = this.front;
         for(int i = 0; i < this.size(); i++){
             if(k > this.size() - 1){
@@ -43,6 +36,13 @@ public class MyDeque<E> implements DequeInterface<E> {
             this.data[i] = data[k];
             k++;
         }
+
+        this.front = 0;
+        if(this.size() == 0){
+            this.rear = 0;
+            return;
+        }
+        this.rear = this.size() - 1;
     }
 
     public void addFirst(E element){

@@ -3,6 +3,7 @@ public class MyDeque<E> implements DequeInterface<E> {
     int size;
     int rear;
     int front;
+    private static final DEFAULT_CAPACITY = 10;
     
     public MyDeque(int initialCapacity) {
         if(initialCapacity < 0) {
@@ -16,19 +17,68 @@ public class MyDeque<E> implements DequeInterface<E> {
     }
 
     public int size(){
-
+        return this.size;
     }
 
     public void expandCapacity(){
+        if(data.length == 0){
+            this.data = new Object[DEFAULT_CAPACITY];
+            return;
+        }
 
+        this.data = new Object[data.length * 2];
+
+        this.front = 0;
+        if(this.size() == 0){
+            this.rear = 0;
+            return;
+        }
+        this.rear = this.size() - 1;
+
+        int k = this.front;
+        for(int i = 0; i < this.size(); i++){
+            if(k > this.size() - 1){
+                k = 0;
+            }
+            this.data[i] = data[k];
+            k++;
+        }
     }
 
     public void addFirst(E element){
+        if(element == null){
+            throw new NullPointerException();
+        }
 
+        if(data.length == this.size() - 1){
+            expandCapacity();
+        }
+
+        if(this.front == 0){
+            this.front = this.size() - 1;
+            data[this.front] = element;
+            return;
+        }
+        data[this.front - 1] = element;
+        this.front = this.front - 1;
     }
 
     public void addLast(E element){
+        if(element == null){
+            throw new NullPointerException();
+        }
 
+        if(data.length == this.size() - 1){
+            expandCapacity();
+        }
+
+        if(this.rear == this.size() - 1){
+            this.rear = 0;
+            data[this.rear] = element;
+            return;
+        }
+        data[this.rear + 1] = element;
+        this.front = this.front + 1;
     }
 
     public E removeFirst(){

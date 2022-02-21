@@ -57,10 +57,12 @@ public class MyDeque<E> implements DequeInterface<E> {
         if(this.front == 0){
             this.front = this.size() - 1;
             data[this.front] = element;
+            size++
             return;
         }
         data[this.front - 1] = element;
         this.front = this.front - 1;
+        size++
     }
 
     public void addLast(E element){
@@ -75,10 +77,12 @@ public class MyDeque<E> implements DequeInterface<E> {
         if(this.rear == this.size() - 1){
             this.rear = 0;
             data[this.rear] = element;
+            size++;
             return;
         }
         data[this.rear + 1] = element;
         this.front = this.front + 1;
+        size++;
     }
 
     public E removeFirst(){

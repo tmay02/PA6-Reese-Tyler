@@ -1,19 +1,20 @@
 /**
- * TODO: Add your file header
- * Name:
- * ID:
- * Email:
- * Sources used: Put "None" if you did not have any external help
- * Some example of sources used would be Tutors, Zybooks, and Lecture Slides
+ * Name: Tyler May, Reese Whitlock
+ * ID: A16792035, A17074829
+ * Email: tjmay@ucsd.edu, rwhitlock@ucsd.edu
+ * Sources used: Coding done jointly
  * 
- * 2-4 sentence file description here
+ * CustomTester.java tests files MyDeque.java, MyQueue.java, and MyStack.java.
+ * These tests take into account things that PublicTester.java did not test.
+ * Imports junit tests to test these files.
  */
 
 import org.junit.*;
 import static org.junit.Assert.*;
 
 /**
- * TODO: Add your class header
+ * public class CustomTester uses assertEquals and assertTrue to test
+ * MyDeque.java, MyQueue.java, and MyStack.java. It runs 10 tests.
  * 
  * IMPORTANT: Do not change the method names and points are awarded
  * only if your test cases cover cases that the public tester file

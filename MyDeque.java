@@ -1,3 +1,23 @@
+/**
+ * Name: Tyler May, Reese Whitlock
+ * ID: A16792035, A17074829
+ * Email: tjmay@ucsd.edu, rwhitlock@ucsd.edu
+ * Sources used: Coding done jointly
+ * 
+ * The purpose of MyDeque.java is to do a manual implementation of the ADT
+ * Deque. It implements generic interface DequeInterface<E> held in file
+ * DequeInterface.java.
+ */
+
+
+/**
+ * Public generic class MyDeque<E> implements ADT deque using an array.
+ * Instance variables include:
+ *  - Object[] data - holds all data for the deque.
+ *  - int size - holds the amount of non-null elements in the array.
+ *  - int rear - tracks which index holds the end of the deque.
+ *  - int front - tracks which index holds the front of the deque.
+ */
 public class MyDeque<E> implements DequeInterface<E> {
     Object[] data;
     int size;

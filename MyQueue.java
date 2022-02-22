@@ -22,7 +22,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      * @param capacity The max amount of elements this data structure can hold.
      */
     public MyQueue(int capacity) {
-        // TODO: Add your implementation here
+        theQueue = new MyDeque<E>(capacity);
     }
 
     /**
@@ -32,7 +32,9 @@ public class MyQueue<E> implements QueueInterface<E> {
      */
     @Override
     public boolean empty() {
-        // TODO: Add your implementation here
+        if(theQueue.size() == 0) {
+            return true;
+        }
         return false;
     }
 
@@ -43,7 +45,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      */
     @Override
     public void enqueue(E element) {
-        // TODO: Add your implementation here
+        theQueue.addLast(element);
     }
 
     /**
@@ -55,8 +57,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      */
     @Override
     public E dequeue() {
-        // TODO: Add your implementation here
-        return null;
+        return theQueue.removeFirst();
     }
 
     /**
@@ -67,8 +68,7 @@ public class MyQueue<E> implements QueueInterface<E> {
      */
     @Override
     public E peek() {
-        // TODO: Add your implementation here
-        return null;
+        return theQueue.peekFirst();
     }
 
     /**

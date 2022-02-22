@@ -144,19 +144,25 @@ public class CustomTester {
     }
 
     /**
-     * Test the peekFirst method when [TODO]
+     * Test the peekFirst method when size is 0
      */
     @Test
     public void testPeekFirst(){
+        MyDeque<Integer> d = new MyDeque<>(100);
+        d.size = 0;
 
+        assertEquals(null, d.peekFirst());
     }
 
     /**
-     * Test the peekLast method when [TODO]
+     * Test the peekLast method when size is 0
      */
     @Test
     public void testPeekLast(){
+        MyDeque<Integer> d = new MyDeque<>(100);
+        d.size = 0;
 
+        assertEquals(null, d.peekLast());
     }
 
     // ----------------MyStack class----------------

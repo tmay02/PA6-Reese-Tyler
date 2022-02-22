@@ -243,11 +243,16 @@ public class CustomTester {
 
     // ----------------MyStack class----------------
     /**
-     * Test MyStack when [TODO]
+     * Test MyStack when capacity must be expanded.
      */
     @Test
     public void testMyStack(){
-        // You can test any method from MyStack or a combination of methods
+        MyStack<Integer> stack = new MyStack<>(1);
+        assertTrue(stack.empty());
+        stack.push(1);
+        assertEquals(1, stack.size());
+        stack.push(2);
+        assertEquals(Integer.valueOf(2), stack.peek());
     }
 
     // ----------------MyQueue class----------------

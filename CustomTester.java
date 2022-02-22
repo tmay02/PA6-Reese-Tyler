@@ -124,7 +124,22 @@ public class CustomTester {
      */
     @Test
     public void testRemoveLast() {
+        MyDeque<Integer> d = new MyDeque<>(7);
+        Integer[] nums = {3,null,null,null,null,1,2};
+        Integer[] expected = {null,null,null,null,null,1,2};
+        d.front = 5;
+        d.rear = 0;
+        d.data = nums;
+        d.size = 3;
 
+        assertEquals(Integer.valueOf(0), d.removeLast());
+
+        for(int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], d.data[i]);
+        }
+        assertEquals(2, d.size);
+        assertEquals(6, d.rear);
+        assertEquals(5, d.front);
     }
 
     /**

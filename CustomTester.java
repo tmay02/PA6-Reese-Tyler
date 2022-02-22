@@ -253,6 +253,9 @@ public class CustomTester {
         assertEquals(1, stack.size());
         stack.push(2);
         assertEquals(Integer.valueOf(2), stack.peek());
+        assertFalse(stack.empty());
+        assertEquals(Integer.valueOf(2), stack.pop());
+        assertEquals(Integer.valueOf(1), stack.peek());
     }
 
     // ----------------MyQueue class----------------

@@ -22,7 +22,7 @@ public class MyStack<E> implements StackInterface<E> {
      * @param capacity The max amount of elements this data structure can hold.
      */
     public MyStack(int capacity) {
-        // TODO: Add your implementation here
+        theStack = new MyDeque(capacity);
     }
 
     /**
@@ -32,8 +32,11 @@ public class MyStack<E> implements StackInterface<E> {
      */
     @Override
     public boolean empty() {
-        // TODO: Add your implementation here
-        return false;
+        if(this.size() == 0){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -43,7 +46,7 @@ public class MyStack<E> implements StackInterface<E> {
      */
     @Override
     public void push(E element) {
-        // TODO: Add your implementation here
+        this.addFirst(element);
     }
 
     /**
@@ -54,8 +57,9 @@ public class MyStack<E> implements StackInterface<E> {
      */
     @Override
     public E pop() {
-        // TODO: Add your implementation here
-        return null;
+        E toReturn = this.peekFirst();
+        this.removeFirst();
+        return toReturn;
     }
 
     /**
@@ -66,8 +70,7 @@ public class MyStack<E> implements StackInterface<E> {
      */
     @Override
     public E peek() {
-        // TODO: Add your implementation here
-        return null;
+        return this.peekFirst();
     }
 
     /**

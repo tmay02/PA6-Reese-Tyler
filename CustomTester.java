@@ -85,12 +85,15 @@ public class CustomTester {
         d.data = nums;
         d.size = 4;
 
-        d.removeFirst();
+        assertEquals(Integer.valueOf(1), d.removeFirst());
 
-        assertEquals(nums,expected);
+        for(int i = 0; i < nums.length; i++) {
+            assertEquals(expected[i], d.data[i]);
+        }
         assertEquals(3, d.size);
         assertEquals(1, d.rear);
         assertEquals(0, d.front);
+        
     }
 
     /**

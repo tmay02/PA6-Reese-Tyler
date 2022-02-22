@@ -98,16 +98,17 @@ public class MyDeque<E> implements DequeInterface<E> {
         this.size++;
     }
 
+    @SuppressWarnings("unchecked")
     public E removeFirst(){
         if(this.size() == 0) {
             return null;
         }
 
-        E returnElement = (E) 
+        E returnElement = (E) this.data[front];
 
         this.data[front] = null;
         this.size--;
-        if(this.front == this.size() - 1) {
+        if(this.front == this.data.length - 1) {
             this.front = 0;
         } else {
             this.front++;
@@ -146,7 +147,6 @@ public class MyDeque<E> implements DequeInterface<E> {
         if(this.size() == 0) {
             return null;
         }
-        System.out.println(rear);
         return (E) this.data[rear];
     }
 }

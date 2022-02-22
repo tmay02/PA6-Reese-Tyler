@@ -120,7 +120,8 @@ public class CustomTester {
     }
 
     /**
-     * Test the removeLast method when [TODO]
+     * Test the removeLast method when elements loop from one end of
+     * the array to another and rear is at index 0
      */
     @Test
     public void testRemoveLast() {
@@ -132,7 +133,7 @@ public class CustomTester {
         d.data = nums;
         d.size = 3;
 
-        assertEquals(Integer.valueOf(0), d.removeLast());
+        assertEquals(Integer.valueOf(3), d.removeLast());
 
         for(int i = 0; i < expected.length; i++) {
             assertEquals(expected[i], d.data[i]);

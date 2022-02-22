@@ -252,10 +252,18 @@ public class CustomTester {
 
     // ----------------MyQueue class----------------
     /**
-     * Test MyQueue when [TODO]
+     * Test MyQueue when the queue is initially empty
      */
     @Test
     public void testMyQueue(){
-        // You can test any method from MyQueue or a combination of methods
+        MyQueue<Integer> q = new MyQueue<>(5);
+        assertTrue(q.empty());
+        q.enqueue(1);
+        q.enqueue(2);
+        q.enqueue(3);
+        assertFalse(q.empty());
+        assertEquals(Integer.valueOf(1), q.peek());
+        assertEquals(Integer.valueOf(1), q.dequeue());
+        assertEquals(2, q.size());
     }
 }

@@ -249,12 +249,12 @@ public class MazeSearchGUI extends JFrame implements ActionListener {
         QueueInterface<Cell> theQueue = new MyQueue<Cell>(cells.length *
                 cells[0].length);
         // TODO: add the cell at row, col to the queue
-        theQueue.enqueue(Cell(row, col, 1));
+        theQueue.enqueue(new Cell(row, col, 2));
 
         // BFS algorithm
         while (theQueue.size() > 0) {
             // TODO: remove the cell from the queue and store it as currCell
-            currCell = theQueue.dequeue();
+            Cell currCell = theQueue.dequeue();
             exploredCells.enqueue(currCell);
             // If the visited cell is the finish cell, we stop searching
             if (currCell.isFinish()) {
@@ -302,11 +302,11 @@ public class MazeSearchGUI extends JFrame implements ActionListener {
         StackInterface<Cell> theStack = new MyStack<Cell>(cells.length *
                 cells[0].length);
         // TODO: add the cell at row, col to the stack
-        theStack.push(Cell(row, col, 1));
+        theStack.push(new Cell(row, col, 2));
         // DFS algorithm
         while (theStack.size() > 0) {
             // TODO: remove the cell from the stack and store it as currCell
-            currCell = theStack.pop();
+            Cell currCell = theStack.pop();
             exploredCells.enqueue(currCell);
             currCell.setVisited();
             // If the visited cell is the finish cell, we stop searching

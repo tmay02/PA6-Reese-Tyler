@@ -127,7 +127,7 @@ public class MyDeque<E> implements DequeInterface<E> {
         this.data[rear] = null;
         this.size--;
         if(this.rear == 0) {
-            this.rear = this.size() - 1;
+            this.rear = this.data.length - 1;
         } else {
             this.rear--;
         }

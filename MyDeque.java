@@ -29,7 +29,7 @@ public class MyDeque<E> implements DequeInterface<E> {
 
         int k = this.front;
         for(int i = 0; i < this.size(); i++){
-            if(k > this.size() - 1){
+            if(k > this.data.length - 1){
                 k = 0;
             }
             newData[i] = this.data[k];

@@ -62,7 +62,7 @@ public class MyDeque<E> implements DequeInterface<E> {
         }
 
         if(this.front == 0){
-            this.front = this.size() - 1;
+            this.front = this.data.length - 1;
             this.data[this.front] = element;
             this.size++;
             return;
@@ -87,7 +87,7 @@ public class MyDeque<E> implements DequeInterface<E> {
             return;
         }
 
-        if(this.rear == this.size() - 1){
+        if(this.rear == this.data.length - 1){
             this.rear = 0;
             this.data[this.rear] = element;
             this.size++;

@@ -64,16 +64,13 @@ public class CustomTester {
         deque.expandCapacity();
         assertEquals(16, deque.data.length);
         for(int i = 0; i < expected2.length; i++) {
-            System.out.println(deque.data[i]);
-        }
-        for(int i = 0; i < expected2.length; i++) {
             assertEquals(expected2[i], deque.data[i]);
         }
     }
 
     /**
      * Test the addFirst method when front is moved to the back of the array,
-     * and when a null element is added.
+     * when a null element is added, and when the capacity must be expanded.
      */
     @Test
     public void testAddFirst() {
@@ -93,14 +90,84 @@ public class CustomTester {
         assertEquals(1, deque.rear);
         assertEquals(4, deque.data.length);
 
+        boolean logic = false;
+        try {
+            deque.addFirst(null);
+        } catch(NullPointerException E) {
+            logic = true;
+        }
+        assertTrue(logic);
+
+        deque.addFirst(4);
+        Integer[] expected2 = {1, 2, 4, 3};
+        for(int i = 0; i < expected2.length; i++) {
+            assertEquals(expected2[i], deque.data[i]);
+        }
+        assertEquals(4, deque.size());
+        assertEquals(2, deque.front);
+        assertEquals(1, deque.rear);
+        assertEquals(4, deque.data.length);
+
+        deque.addFirst(5);
+        Integer[] expected3 = {4, 3, 1, 2, null, null, null, 5};
+        for(int i = 0; i < expected3.length; i++) {
+            assertEquals(expected3[i], deque.data[i]);
+        }
+        assertEquals(5, deque.size());
+        assertEquals(7, deque.front);
+        assertEquals(3, deque.rear);
+        assertEquals(8, deque.data.length);
     }
 
     /**
-     * Test the addLast method when [TODO]
+     * Test the addLast method when rear is moved to the front of the array,
+     * and when a null element is added, and when the capacity must be expanded.
      */
     @Test
     public void testAddLast() {
+        MyDeque<Integer> deque = new MyDeque<>(4);
+        Integer[] nums = {null, null, 1, 2};
+        Integer[] expected = {3, null, 1, 2};
+        deque.data = nums;
+        deque.front = 2;
+        deque.rear = 3;
+        deque.size = 2;
+        deque.addLast(3);
+        for(int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], deque.data[i]);
+        }
+        assertEquals(3, deque.size());
+        assertEquals(2, deque.front);
+        assertEquals(0, deque.rear);
+        assertEquals(4, deque.data.length);
 
+        boolean logic = false;
+        try {
+            deque.addLast(null);
+        } catch(NullPointerException E) {
+            logic = true;
+        }
+        assertTrue(logic);
+
+        deque.addLast(4);
+        Integer[] expected2 = {3, 4, 1, 2};
+        for(int i = 0; i < expected2.length; i++) {
+            assertEquals(expected2[i], deque.data[i]);
+        }
+        assertEquals(4, deque.size());
+        assertEquals(2, deque.front);
+        assertEquals(1, deque.rear);
+        assertEquals(4, deque.data.length);
+
+        deque.addLast(5);
+        Integer[] expected3 = {1, 2, 3, 4, 5, null, null, null};
+        for(int i = 0; i < expected3.length; i++) {
+            assertEquals(expected3[i], deque.data[i]);
+        }
+        assertEquals(5, deque.size());
+        assertEquals(0, deque.front);
+        assertEquals(4, deque.rear);
+        assertEquals(8, deque.data.length);
     }
 
     /**

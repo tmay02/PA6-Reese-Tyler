@@ -72,18 +72,27 @@ public class CustomTester {
     }
 
     /**
-     * Test the addFirst method when [TODO]
+     * Test the addFirst method when front is moved to the back of the array,
+     * and when a null element is added.
      */
     @Test
     public void testAddFirst() {
-        MyDeque<Integer> deque = new MyDeque<>(2);
-        deque.addFirst(1);
-        assertEquals(Integer.valueOf(1), deque.peekFirst());
-        deque.addFirst(2);
-        assertEquals(Integer.valueOf(2), deque.peekFirst());
-        assertEquals(Integer.valueOf(1), deque.peekLast());
+        MyDeque<Integer> deque = new MyDeque<>(4);
+        Integer[] nums = {1, 2, null, null};
+        Integer[] expected = {1, 2, null, 3};
+        deque.data = nums;
+        deque.front = 0;
+        deque.rear = 1;
+        deque.size = 2;
         deque.addFirst(3);
-        assertEquals(Integer.valueOf(3), deque.peekFirst());
+        for(int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], deque.data[i]);
+        }
+        assertEquals(3, deque.size());
+        assertEquals(3, deque.front);
+        assertEquals(1, deque.rear);
+        assertEquals(4, deque.data.length);
+
     }
 
     /**

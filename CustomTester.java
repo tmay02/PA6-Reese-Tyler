@@ -36,16 +36,39 @@ public class CustomTester {
     }
 
     /**
-     * Test the expandCapacity method when [TODO]
+     * Test the expandCapacity method when elements are reordered
      */
     @Test
     public void testMyDequeExpandCapacity() {
         MyDeque<Integer> deque = new MyDeque<>(2);
-        deque.addFirst(1);
-        deque.addFirst(2);
-        deque.addLast(3);
+        Integer[] nums = {2, 1};
+        Integer[] expected = {1, 2};
+        deque.data = nums;
+        deque.front = 1;
+        deque.rear = 0;
+        deque.size = 2;
+        deque.expandCapacity();
         assertEquals(4, deque.data.length);
-        assertEquals(3, deque.size());
+        for(int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], deque.data[i]);
+        }
+        assertEquals(2, deque.size());
+        deque.expandCapacity();
+        assertEquals(8, deque.data.length);
+        Integer[] nums2 = {1, 2, null, null, null, null, 4, 3};
+        Integer[] expected2 = {4, 3, 1, 2, null, null, null, null};
+        deque.data = nums2;
+        deque.front = 6;
+        deque.rear = 1;
+        deque.size = 4;
+        deque.expandCapacity();
+        assertEquals(16, deque.data.length);
+        for(int i = 0; i < expected2.length; i++) {
+            System.out.println(deque.data[i]);
+        }
+        for(int i = 0; i < expected2.length; i++) {
+            assertEquals(expected2[i], deque.data[i]);
+        }
     }
 
     /**
@@ -59,8 +82,8 @@ public class CustomTester {
         deque.addFirst(2);
         assertEquals(Integer.valueOf(2), deque.peekFirst());
         assertEquals(Integer.valueOf(1), deque.peekLast());
-        deque.addLast(3);
-        assertEquals(Integer.valueOf(3), deque.peekLast());
+        deque.addFirst(3);
+        assertEquals(Integer.valueOf(3), deque.peekFirst());
     }
 
     /**
@@ -87,7 +110,7 @@ public class CustomTester {
 
         assertEquals(Integer.valueOf(1), d.removeFirst());
 
-        for(int i = 0; i < nums.length; i++) {
+        for(int i = 0; i < expected.length; i++) {
             assertEquals(expected[i], d.data[i]);
         }
         assertEquals(3, d.size);

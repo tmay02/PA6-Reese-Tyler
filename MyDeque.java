@@ -25,6 +25,10 @@ public class MyDeque<E> implements DequeInterface<E> {
     int front;
     private static final int DEFAULT_CAPACITY = 10;
     
+    /**
+     * Constructor for MyDeque
+     * @param initialCapacity - initial size of data
+     */
     public MyDeque(int initialCapacity) {
         if(initialCapacity < 0) {
             throw new IllegalArgumentException();
@@ -36,10 +40,16 @@ public class MyDeque<E> implements DequeInterface<E> {
         this.front = 0;
     }
 
+    /**
+     * @return size of deque
+     */
     public int size(){
         return this.size;
     }
 
+    /**
+     * Doubles the capacity of the Object array data.
+     */
     public void expandCapacity(){
         if(this.data.length == 0){
             this.data = new Object[DEFAULT_CAPACITY];
@@ -66,6 +76,10 @@ public class MyDeque<E> implements DequeInterface<E> {
         this.data = newData;
     }
 
+    /**
+     * Adds an element to the front of the deque
+     * @param element - element to add
+     */
     public void addFirst(E element){
         if(element == null){
             throw new NullPointerException();
@@ -92,6 +106,10 @@ public class MyDeque<E> implements DequeInterface<E> {
         this.size++;
     }
 
+    /**
+     * Adds an element to the back of the deque
+     * @param element - element to add
+     */
     public void addLast(E element){
         if(element == null){
             throw new NullPointerException();
@@ -118,6 +136,10 @@ public class MyDeque<E> implements DequeInterface<E> {
         this.size++;
     }
 
+    /**
+     * Removes an element from the front of the deque
+     * @return element that was removed
+     */
     @SuppressWarnings("unchecked")
     public E removeFirst(){
         if(this.size() == 0) {
@@ -137,6 +159,11 @@ public class MyDeque<E> implements DequeInterface<E> {
         return returnElement;
     }
 
+    /**
+     * Removes an element from the back of the deque
+     * @return element that was removed
+     */
+    @SuppressWarnings("unchecked")
     public E removeLast(){
         if(this.size() == 0) {
             return null;
@@ -155,6 +182,10 @@ public class MyDeque<E> implements DequeInterface<E> {
         return returnElement;
     }
 
+    /**
+     * @return element at the front of the deck
+     */
+    @SuppressWarnings("unchecked")
     public E peekFirst(){
         if(this.size() == 0) {
             return null;
@@ -163,6 +194,10 @@ public class MyDeque<E> implements DequeInterface<E> {
         return (E) this.data[front];
     }
 
+    /**
+     * @return element at the back of the deck
+     */
+    @SuppressWarnings("unchecked")
     public E peekLast(){
         if(this.size() == 0) {
             return null;

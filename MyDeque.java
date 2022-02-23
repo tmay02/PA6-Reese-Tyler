@@ -57,6 +57,7 @@ public class MyDeque<E> implements DequeInterface<E> {
         }
         Object[] newData = new Object[this.data.length * 2];
 
+        //resorts elements in array from front to rear
         int k = this.front;
         for(int i = 0; i < this.size(); i++){
             if(k > this.data.length - 1){
@@ -66,6 +67,7 @@ public class MyDeque<E> implements DequeInterface<E> {
             k++;
         }
 
+        //reassigns front and rear
         this.front = 0;
         if(this.size() == 0){
             this.rear = 0;
@@ -85,6 +87,7 @@ public class MyDeque<E> implements DequeInterface<E> {
             throw new NullPointerException();
         }
 
+        //checks to see if capacity is reached
         if(data.length == this.size()){
             this.expandCapacity();
         }
@@ -95,6 +98,7 @@ public class MyDeque<E> implements DequeInterface<E> {
             return;
         }
 
+        //if front is at index 0, wrap around to the end of the array
         if(this.front == 0){
             this.front = this.data.length - 1;
             this.data[this.front] = element;
@@ -115,6 +119,7 @@ public class MyDeque<E> implements DequeInterface<E> {
             throw new NullPointerException();
         }
 
+        //checks if capacity is reached
         if(this.data.length == this.size()){
             this.expandCapacity();
         }
@@ -125,6 +130,7 @@ public class MyDeque<E> implements DequeInterface<E> {
             return;
         }
 
+        //if rear is at the end of the array, wraps around to the front
         if(this.rear == this.data.length - 1){
             this.rear = 0;
             this.data[this.rear] = element;

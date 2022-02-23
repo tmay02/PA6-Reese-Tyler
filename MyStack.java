@@ -1,8 +1,8 @@
 /**
- * TODO: Add your file header
- * Name:
- * Email:
- * Sources used: Put "None" if you did not have any external help
+ * Name: Tyler May, Reese Whitlock
+ * ID: A16792035, A17074829
+ * Email: tjmay@ucsd.edu, rwhitlock@ucsd.edu
+ * Sources used: Coding done jointly
  * 
  * This file contains a MyStack class, which is an implementation for the Stack
  * ADT based on MyDeque. Elements can be added/removed from the queue in a LIFO
